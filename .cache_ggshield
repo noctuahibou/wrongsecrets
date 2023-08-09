@@ -1,1 +1,0 @@
-{"last_found_secrets": [{"match": "6f418fb3009637201bf7b800040e2747f10dfdf4b3a92e328ffbc6a7716b1d55", "name": "Generic Password - src/main/java/org/owasp/wrongsecrets/challenges/docker/Constants.java"}, {"match": "bf5f2b8b5c3f819f950177d0edcfc27bc4d6317814d6ee1bcaad766ac0abee54", "name": "Generic Password - src/main/java/org/owasp/wrongsecrets/challenges/docker/Constants.java"}]}
