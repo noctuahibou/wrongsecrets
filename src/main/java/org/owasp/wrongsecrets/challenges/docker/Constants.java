@@ -8,6 +8,4 @@ public class Constants {
 
   public static final String password = "gr2isslahgldgY$mMiidjY3#wo78&dRZ!Y%gA&6Re2%gcdBkB3tk5U3XNE";
   public static final String newKey = "mISydD0En55Fq8FXbUfX720K8Vc6/aQYtkFmkp7ntsM=";
-  public static final String aws_access_key_id = "AKIAVAGUQ5JEUHZTCH6M"
-  public static final aws_secret_access_key = "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"
 }
