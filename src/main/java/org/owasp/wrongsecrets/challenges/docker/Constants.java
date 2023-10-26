@@ -5,8 +5,8 @@ import lombok.experimental.UtilityClass;
 /** used for Challenges their secrets. */
 @UtilityClass
 
-public static final aws_access_key_id = "AKIAVD32IN6IPKZLXYBI"
-public static final String aws_secret_access_key = "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"
+#public static final aws_access_key_id = "AKIAVD32IN6IPKZLXYBI"
+#public static final String aws_secret_access_key = "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"
 
 public class Constants {
   #change
