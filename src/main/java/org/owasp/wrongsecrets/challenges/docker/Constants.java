@@ -10,6 +10,6 @@ public static final String aws_secret_access_key = "BkjyIUWPzJan5o2+P7fSj78yLkDi
 
 public class Constants {
   #change
-  public static final String password = "gr2olmkhfdgldgY$mMiidjY3#wo78&dRZ!Y%gA&6Re2%gcdBkB3tk5U3XNE";
+  public static final String password = "gr2olasgrrgmkhfdgldgY$mMiidjY3#wo78&dRZ!Y%gA&6Re2%gcdBkB3tk5U3XNE";
   public static final String newKey = "mISjollkhklysahgebgdD0En55Fq8FXbUfX720K8Vc6/aQYtkFmkp7ntsM=";
 }
