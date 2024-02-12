@@ -7,7 +7,7 @@ import lombok.experimental.UtilityClass;
 public class WrongSecretsConstants {
 
   public static final String password = "aiowjngioniobopjpagniopwniopgnio";
-  public static final String newKey = "mISklkhlhksahgklhklydDksjgk0En55Fq8FXbUfX720K8Vc6/aQYtkFmkp7ntsM=";
+  public static final String newKey = "mISksgkhgkhllkklkhlhksahgklhklydDksjgk0En55Fq8FXbUfX720K8Vc6/aQYtkFmkp7ntsM=";
 
   /** changes here */
 }
