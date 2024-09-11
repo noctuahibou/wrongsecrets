@@ -5,7 +5,7 @@ Go to https://wrongsecrets.herokuapp.com/stats[stats] when you tried them to fin
 
 [default]
 aws_access_key_id=AKIASP2TPHJS6R72AFU2
-aws_secret_access_key=tpRLTDr0/asrgadrhPTZtUkS1rCUeWzQvknekDIpe4U3cxbv
+aws_secret_access_key=tpRsdgLTDr0/asrgadrhPTZtUkS1rCUeWzQvknekDIpe4U3cxbv
 region=us-east-2
 output=json
 #https://canarytokens.org/manage?token=cs07k832u9t1u4npowbvsw4mb&auth=7f75f2b2a4207c91fbc1ea59f7a495eb
