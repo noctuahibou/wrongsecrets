@@ -1,6 +1,7 @@
 Note-2: Did you know that these are working access keysfootnote:disclaimer[They are not "normal" AWS access keys: they are canary tokens! Though you can do `aws sts get-caller-identity` with them. When you use them, some of your data (IP/agent) is being logged.]?!
 Go to https://wrongsecrets.herokuapp.com/stats[stats] when you tried them to find out more!
 
+# THis is a comment
 
 [default]
 aws_access_key_id=AKIASP2TPHJS6R72AFU2
