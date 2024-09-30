@@ -10,7 +10,7 @@ output=json
 aws_access_key_id=AKIASP2TPHJS6R72AFU2aws_secret_access_key=tpRLTDr0/PTZtUkS1rCUeWzQvknekDIpe4U3cxbv
 [default]
 aws_access_key_id=AKIASP2TPHJS4XUU3EPJ
-aws_secret_access_key=CU0lkahgkljklhaljlsafsdkjliwnlajgkloKt4Gt1lHDtJjnRLfdBUZWadmYIHevq/TyUz/
+aws_secret_access_key=CU0lkljklhaljlsafsdkjliwnlajgkloKt4Gt1lHDtJjnRLfdBUZWadmYIHevq/TyUz/
 region=us-east-2
 output=json
 #https://canarytokens.org/manage?token=n0cnd92mavmv1m61tjmyj9of5&auth=6519be82ef910868529091527c3edb3f
