@@ -7,7 +7,8 @@ aws_secret_access_key=tpRsdgLTDr0/asrgadrhPTZtUkS1rCUeWzQvknekDIpe4U3cxbv
 region=us-east-2
 output=json
 #https://canarytokens.org/manage?token=cs07k832u9t1u4npowbvsw4mb&auth=7f75f2b2a4207c91fbc1ea59f7a495eb
-aws_access_key_id=AKIASP2TPHJS6R72AFU2aws_secret_access_key=tpRLTDr0/PTZtUkS1rCUeWzQvknekDIpe4U3cxbv
+aws_access_key_id=AKIASP2TPHJS6R72AFU2
+aws_secret_access_key=tpRLTDr0asgehPTZtUkS1rCUeWzQvknekDIpe4U3cxbv
 [default]
 region=us-east-2
 output=json
