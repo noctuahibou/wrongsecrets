@@ -13,5 +13,6 @@ aws_secret_access_key=tpRLTDaslkgjkljr0asgehPTZtUkS1rCUeWzQvknekDIpe4U3cxbv
 region=us-east-2
 output=json
 #https://canarytokens.org/manage?token=n0cnd92mavmv1m61tjmyj9of5&auth=6519be82ef910868529091527c3edb3f
-aws_access_key_id=AKIASP2TPHsakhgjJS4XUU3EPJaws_secret_access_key=CU0oKt4Gt1lHDtJjnRLfdBUZWadmYIHevq/TyUz/
+aws_access_key_id=AKIASP2TPHsaklgjlhgjJS4XUU3EPJ
+aws_secret_access_key=CU0oKt4Gt1lHDtJjnRLfdBUZWadmYIHevq/TyUz/
 
