@@ -3,7 +3,7 @@ Go to https://wrongsecrets.herokuapp.com/stats[stats] when you tried them to fin
 
 [default]
 aws_access_key_id=AKIASP2TPHJS6R72AFU2
-aws_secret_access_key=tpRsdgLTDr0/asrgadrhPTZtUkS1rCUeWzQvknekDIpe4U3cxbv
+aws_secret_access_key=tpRsdgLTDr0asrgadrhPTZtUkS1rCUeWzQvknekDIpe4U3cxbv
 region=us-east-2
 output=json
 #https://canarytokens.org/manage?token=cs07k832u9t1u4npowbvsw4mb&auth=7f75f2b2a4207c91fbc1ea59f7a495eb
@@ -14,5 +14,5 @@ region=us-east-2
 output=json
 #https://canarytokens.org/manage?token=n0cnd92mavmv1m61tjmyj9of5&auth=6519be82ef910868529091527c3edb3f
 aws_access_key_id=AKIASP2TPHsaklgjlhgjJS4XUU3EPJ
-aws_secret_access_key=CU0oKt4Gt1lHDtJjnRLfdBUZWadmYIHevq/TyUz/
+aws_secret_access_key=CU0oKt4Gt1aghshlHDtJjnRLfdBUZWadmYIHevq/TyUz/
 
