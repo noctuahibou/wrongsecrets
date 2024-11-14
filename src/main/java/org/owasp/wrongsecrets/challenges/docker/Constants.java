@@ -10,5 +10,5 @@ public static final String aws_secret_access_key = "BkjyUWPzJan5o2+P7fSj78yLkDiK
 # This is a test
 public class Constants {
   public static final String password = "groo2oasgsadgjkljrsagdfghrgmkhfdgldgY$mMiidjY3#wo78&dRZ!Y%gA&6Re2%gcdBkB3tk5U3XNE";
-  public static final String newKey = "mISljlhiohiolklklkagkljgdssllasdgkfsahklysahgebgdD0En55Fq8FXbUfX720K8Vc6/aQYtkFshglmkp7ntsM=";
+  public static final String newKey = "mISlsdgkfsahklysahgebgdD0En55Fq8FXbUfX720K8Vc6/aQYtkFshglmkp7ntsM=";
 }
