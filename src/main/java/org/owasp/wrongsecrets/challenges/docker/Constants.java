@@ -9,6 +9,6 @@ public static final String aws_secret_access_key = "BkjyUWPzJan5o2+P7fSj78yLkDiK
 
 # This is a comment
 public class Constants {
-  public static final String password = "grosgsakllhdgjkljrsagdfghrgmkhfdgldgY$mMiidjY3#wo78&dRZ!Y%gA&6Re2%gcdBkB3tk5U3XNE"
-  public static final String newKey = "mIgkfshlhkljlklkklhklhklliahgklhljaslgkjaklahgkljklhklysahgebgdD0En55Fq8FXbUfX720YtkFshglmkp7ntsM="
+  public static final String password = "grosgsakkjkljkljlllhdgjkljrsagdfghrgmkhfdgldgY$mMiidjY3#wo78&dRZ!Y%gA&6Re2%gcdBkB3tk5U3XNE"
+  public static final String newKey = "mIgkfshlhkklhklhklliahgklhljaslgkjaklahgkljklhklysahgebgdD0En55Fq8FXbUfX720YtkFshglmkp7ntsM="
 }
