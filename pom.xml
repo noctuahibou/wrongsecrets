@@ -66,7 +66,7 @@
     <spring.cloud-version>2023.0.3</spring.cloud-version>
     <spring.security.version>6.2.3</spring.security.version>
     <system-stubs-jupiter.version>2.1.7</system-stubs-jupiter.version>
-    <thymeleaf-extras-springsecurity6.version>3.1.2.RELEASE</thymeleaf-extras-springsecurity6.version>
+    <thymeleaf-extras-springsecurity6.version>3.1.3.RELEASE</thymeleaf-extras-springsecurity6.version>
     <thymeleaf.layout.version>3.3.0</thymeleaf.layout.version>
   </properties>
 
@@ -543,8 +543,8 @@
               <includes>
                 <include>.gitignore</include>
               </includes>
-              <trimTrailingWhitespace></trimTrailingWhitespace>
-              <endWithNewline></endWithNewline>
+              <trimTrailingWhitespace/>
+              <endWithNewline/>
               <indent>
                 <tabs>true</tabs>
                 <spacesPerTab>4</spacesPerTab>
@@ -556,7 +556,7 @@
               <include>src/main/java/**/*.java</include>
               <include>src/test/java/**/*.java</include>
             </includes>
-            <removeUnusedImports></removeUnusedImports>
+            <removeUnusedImports/>
             <googleJavaFormat>
               <style>GOOGLE</style>
               <reflowLongStrings>true</reflowLongStrings>
@@ -624,7 +624,7 @@
         </os>
       </activation>
       <properties>
-        <script.extension></script.extension>
+        <script.extension/>
       </properties>
     </profile>
   </profiles>
