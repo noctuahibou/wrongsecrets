@@ -1,5 +1,3 @@
-
-#https://canarytokens.org/manage?token=n0cnd92mavmv1m61tjmyj9of5&auth=6519be82ef910868529091527c3edb3f
 aws_access_key_id=AKIAY6HM2ZTJL27IJAFG
-aws_secret_access_key=ocas1111K+uf7OPF8sxzfz+y35FGry9+hqvtUuFGb2aD
+aws_secret_access_key=okjkljdfhdhakljasklgjlkglkjlcaikasjgklsdjgkis7O8skljkljlkjklxzfz+y35FGry9+hqvtUuFGb2aD
 #aws_secret_access_key=ocasK+uf7OPF8sxzfz+y35FGry9+hqvtUuFGb2aD
