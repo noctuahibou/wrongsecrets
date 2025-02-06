@@ -1,1 +1,1 @@
-{"last_found_secrets": [{"match": "0437700993ad4213ce6fd0e9eff72b454871b8826bb6ceaa93fd19224c910591", "name": "GitGuardian Internal Monitoring Key - /Users/allankonar/Library/Application Support/Code/User/settings.json"}]}
+{"last_found_secrets": [{"match": "f4b667e39d17208e7aa5ea166dd0ab0f8197236d2c2a083369c51a3298773ab6", "name": "Generic High Entropy Secret - commit://staged/src/main/java/org/owasp/wrongsecrets/challenges/docker/newFile.java"}]}
