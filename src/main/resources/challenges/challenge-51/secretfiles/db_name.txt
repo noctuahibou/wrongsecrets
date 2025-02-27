@@ -1,1 +1,2 @@
-wrongsecrets
+password = wrongsecrets
+testing
