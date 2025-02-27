@@ -70,7 +70,7 @@ an [issue](https://github.com/OWASP/wrongsecrets/issues) , or
 use [discussions](https://github.com/OWASP/wrongsecrets/discussions). Please note that this is an OWASP volunteer
 based project, so it might take a little while before we respond.
 
-Copyright (c) 2020-2024 Jeroen Willemsen and WrongSecrets contributors.
+Copyright (c) 2020-2025 Jeroen Willemsen and WrongSecrets contributors.
 
 ## Basic docker exercises
 
@@ -86,8 +86,10 @@ You can install it by doing:
 ```bash
 docker run -p 8080:8080 jeroenwillemsen/wrongsecrets:latest-no-vault
 ```
-
-Now you can try to find the secrets by means of solving the challenge offered at:
+Now you can try to find the secrets by means of solving the challenge offered at the links below
+<details>
+    <summary>all the links for docker challenges (click triangle to open the block).
+    </summary>
 
 -   [localhost:8080/challenge/challenge-1](http://localhost:8080/challenge/challenge-1)
 -   [localhost:8080/challenge/challenge-2](http://localhost:8080/challenge/challenge-2)
@@ -128,6 +130,8 @@ Now you can try to find the secrets by means of solving the challenge offered at
 -   [localhost:8080/challenge/challenge-49](http://localhost:8080/challenge/challenge-49)
 -   [localhost:8080/challenge/challenge-50](http://localhost:8080/challenge/challenge-50)
 -   [localhost:8080/challenge/challenge-51](http://localhost:8080/challenge/challenge-51)
+
+</details>
 
 Note that these challenges are still very basic, and so are their explanations. Feel free to file a PR to make them look
 better ;-).
@@ -309,20 +313,22 @@ Contributors:
 
 - [Nanne Baars @nbaars](https://www.github.com/nbaars)
 - [Marcin Nowak @drnow4u](https://www.github.com/drnow4u)
-- [Rodolfo Cabral Neves @roddas](https://www.github.com/roddas)
+- [Rodolfo Neves @roddas](https://www.github.com/roddas)
 - [Osama Magdy @osamamagdy](https://www.github.com/osamamagdy)
 - [Shubham Patel @Shubham-Patel07](https://www.github.com/Shubham-Patel07)
+- [za @za](https://www.github.com/za)
 - [Divyanshu Dev @Novice-expert](https://www.github.com/Novice-expert)
 - [Tibor Hercz @tiborhercz](https://www.github.com/tiborhercz)
-- [za @za](https://www.github.com/za)
 - [Chris Elbring Jr. @neatzsche](https://www.github.com/neatzsche)
+- [Adarsh A @adarsh-a-tw](https://www.github.com/adarsh-a-tw)
 - [Diamond Rivero @diamant3](https://www.github.com/diamant3)
 - [Norbert Wolniak @nwolniak](https://www.github.com/nwolniak)
-- [Adarsh A @adarsh-a-tw](https://www.github.com/adarsh-a-tw)
 - [Filip Chyla @fchyla](https://www.github.com/fchyla)
 - [Turjo Chowdhury @turjoc120](https://www.github.com/turjoc120)
+- [Mahaputra Ilham Awal @mahaputrailhamawal](https://www.github.com/mahaputrailhamawal)
 - [Vineeth Jagadeesh @djvinnie](https://www.github.com/djvinnie)
 - [Dmitry Litosh @Dlitosh](https://www.github.com/Dlitosh)
+- [SndR @SndR85](https://www.github.com/SndR85)
 - [Josh Grossman @tghosth](https://www.github.com/tghosth)
 - [alphasec @alphasecio](https://www.github.com/alphasecio)
 - [CaduRoriz @CaduRoriz](https://www.github.com/CaduRoriz)

@@ -58,11 +58,11 @@ spec:
             volumeAttributes:
               secretProviderClass: "wrongsecrets-gcp-secretsmanager"
       containers:
-        - image: jeroenwillemsen/wrongsecrets:1.10.0-k8s-vault
+        - image: jeroenwillemsen/wrongsecrets:1.10.3-k8s-vault
           imagePullPolicy: IfNotPresent
           name: secret-challenge
           command: ["/bin/sh"]
-          args: ["-c", "source /vault/secrets/challenge46 && source /vault/secrets/challenge47 && java -jar -Dspring.profiles.active=kubernetes-vault -Dspringdoc.swagger-ui.enabled=true -Dspringdoc.api-docs.enabled=true -D /application.jar"]
+          args: ["-c", "source /vault/secrets/challenge46 && source /vault/secrets/challenge47 && java -jar -Dspring.profiles.active=kubernetes-vault -Dspringdoc.swagger-ui.enabled=true -Dspringdoc.api-docs.enabled=true -D /application/application.jar"]
           ports:
             - containerPort: 8080
               protocol: TCP

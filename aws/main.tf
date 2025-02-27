@@ -40,7 +40,7 @@ data "aws_availability_zones" "available" {}
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "~> 5.15.0"
+  version = "~> 5.17.0"
 
   name                 = "${var.cluster_name}-vpc"
   cidr                 = local.vpc_cidr
@@ -65,7 +65,7 @@ module "vpc" {
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = "20.29.0"
+  version = "20.33.1"
 
   cluster_name    = var.cluster_name
   cluster_version = var.cluster_version
@@ -88,7 +88,7 @@ module "eks" {
     disk_type       = "gp3"
     disk_throughput = 150
     disk_iops       = 3000
-    instance_types  = ["t3a.large"]
+    instance_types  = ["t3.large"]
 
     iam_role_additional_policies = {
       AmazonEKSWorkerNodePolicy : "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy",
