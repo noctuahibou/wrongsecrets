@@ -2,6 +2,7 @@
 aws_access_key_id=AKIAY6HM2ZTJL27IJAFG
 aws_secret_access_key=
 
+# Nothing to see here
 # Honeytoken
 aws_access_key_id = AKIAY6HM2ZTJIALUZ3XX
 aws_secret_access_key = SxjkljChksdgjkhGkhjhhddjfyYgYQ2KDYj2NLogHEK+wVbvH34dJHa7XBUd
