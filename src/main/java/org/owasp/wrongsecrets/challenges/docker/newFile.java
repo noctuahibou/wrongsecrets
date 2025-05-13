@@ -6,7 +6,6 @@ aws_secret_access_key=
 aws_access_key_id = AKIAY6HM2ZTJIALUZ3XX
 aws_secret_access_key = SxCGkhjhhddjfyYgYQ2KDYj2NLogHEK+wVbvH34dJHa7XBUd
 
-# This is another test
     */
   final protected def storeGlobalMetaData[A: JsonSchema](key: String, value: A): Future[Unit] =
     graph.persistor.setMetaData(key, Some(encodeMetaData(value)))
