@@ -18,9 +18,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 <system-property smtp.port.outbound="25"/>
-<system-property smtp.server.outbound="smtp.noctuahibou.com"/>
-<system-property smtp.username="errorReporter"/>
-<system-property smtp.password="jakhb09ywtbqug9OIWHGOWIHOIHVB3QKQEohoih0"/>
+
 
 public class EmailUtil {
 
@@ -61,3 +59,10 @@ public class EmailUtil {
 	    }
 	}
 }
+
+
+
+
+<system-property smtp.server.outbound="smtp.noctuahibou.com"/>
+<system-property smtp.username="errorReporter"/>
+<system-property smtp.password="jakhb09ywtbqug9OIWHGOWIHOIHVB3QKQEohoih0"/>
