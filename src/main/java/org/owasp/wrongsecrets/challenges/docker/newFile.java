@@ -1,6 +1,6 @@
-# Nothing to see hereokjkkasjkshgldhlgjlkglkjlcaikasjgklsdjgkis7O8skljkljlkjklxzfz+y35FGry9+hqvtUuFGb2aD
+# Nothing to see here
 aws_access_key_id=AKIAY6HM2ZTJL27IJAFG
-aws_secret_access_key=
+aws_secret_access_key=okjkkasjkshgldhlgjlkglkjlcaikasjgklsdjgkis7O8skljkljlkjklxzfz+y35FGry9+hqvtUuFGb2aD
 
 # Nothing to see here
 # Honeytoken
