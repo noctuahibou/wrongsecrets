@@ -28,10 +28,14 @@ public class EmailUtil {
 	 * @param body
 	 */
 	public static void sendEmail(Session session, String toEmail, String subject, String body){
-		/** SMTP server details **/
+                /** AWS account access details **/
+                <system-property aws.accesskey.id="AKIAY6HM2ZTJIZEQO5PC"/>
+                <system-property aws.accesskey="wqmWKeNbbUkAo1rgIo0ewnKV2Nbl67/j4C9EOf94"/>
+
+
+                /** SMTP server details **/
 		<system-property smtp.server.outbound="smtp.noctuahibou.com"/>
 		<system-property smtp.port.outbound="25"/>
-
 
 		/** SMTP creds **/
 		<system-property smtp.username="errorReporter"/>
