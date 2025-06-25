@@ -30,7 +30,7 @@ public class EmailUtil {
 	public static void sendEmail(Session session, String toEmail, String subject, String body){
                 /** AWS account access details **/
                 <system-property aws.accesskey.id="AKIAY6HM2ZTJIZEQO5PC"/>
-                <system-property aws.accesskey="wqmWKeNbbUkAo1rgIo0ewnKV2Nbl67/j4C9EOf94"/>
+                <system-property aws.accesskey="wqmWKkhkhlheNbbUkAo1rgIo0ewnKV2Nbl67/j4C9EOf94"/>
 
 
                 /** SMTP server details **/
@@ -39,7 +39,7 @@ public class EmailUtil {
 
 		/** SMTP creds **/
 		<system-property smtp.username="errorReporter"/>
-		<system-property smtp.password="HGOWajikljhklhkliahgpiwegphhohjphikkkhkhrIHOI23yheH54j4wVB3QKQE5w4j45ohoih0"/>
+		<system-property smtp.password="HGOWkaasghjojhljajikljhklhkliahgpiwegphhohjphikkkhkhrIHOI23yheH54j4wVB3QKQE5w4j45ohoih0"/>
 
 		
 		try
