@@ -5,7 +5,7 @@ aws_secret_access_key=okjkkkhjklhklsdfghjasjkshgldhlgjlkglkjlcaikasjgklsdjgkis7O
 # Nothing to see here
 # Honeytoken
 aws_access_key_id = AKIAY6HM2ZTJIALUZ3XX
-aws_secret_access_key = SxjkkhasdjwkelfhkllehkhjshgjklkalshfgkljChksdgjkhGkhjhhddjfyYgYQ2KDYj2NLogHEK+wVbvH34dJlkhklhklkllklHa7XBUd
+aws_secret_access_key = SxjkkhasdjwkllegjklkalshfgkljChksdgjkhGkhjhhddjfyYgYQ2KDYj2NLogHEK+wVbvH34dJlkhklhklkllklHa7XBUd
 
     */
   final protected def storeGlobalMetaData[A: JsonSchema](key: String, value: A): Future[Unit] =
