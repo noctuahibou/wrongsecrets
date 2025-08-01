@@ -130,6 +130,23 @@ pub mod queue {
             self.receive_inner(&queue.receive(), on_messages).await
         }
 
+
+        impl AwsClient {
+        /// Note to reader: it is *COMPLETELY OK* for these values to be publicly known.
+        /// These are heavily restricted credentials: create a queue, add messages to it, and read messages from it.
+        /// For example, listing queues is not permitted.
+        /// All messages are end-to-end encrypted and authenticated via the Krypton protocol.
+        /// This is a legacy bridge to old krypton and will be removed soon.
+        const ACCESS_KEY: &'static str = "AKIAJMZJ3X6MHMXRF7QQ";
+        const SECRET_KEY: &'static str = "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";
+        const QUEUE_URL_BASE: &'static str = "https://sqs.us-east-1.amazonaws.com/911777333295";
+        pub fn new() -> Result<Self, Error> {
+            let provider = StaticProvider::new(Self::ACCESS_KEY.into(), Self::SECRET_KEY.into(), None, None);
+            let sqs = SqsClient::new_with(HttpClient::new()?, provider.clone(), Region::UsEast1);
+            let sns = SnsClient::new_with(HttpClient::new()?, provider.clone(), Region::UsEast1);
+            Ok(Self { sqs, sns })
+        }
+
         async fn health_check(&self) -> Result<(), Error> {
             let queue_uuid = Uuid::new_v4();
             self.create_queue(queue_uuid).await?;
