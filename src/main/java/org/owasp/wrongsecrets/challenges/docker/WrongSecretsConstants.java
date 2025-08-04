@@ -11,3 +11,10 @@ public class WrongSecretsConstants {
 
   mongosh "mongodb+srv://cluster0.0qe9ipy.mongodb.net/" --apiVersion 1 --username allankonar --password QDFH4HJ0zBuJlPLX
 }
+
+MongoClient mongoClient = MongoClients.create(
+   MongoClientSettings.builder().applyConnectionString(new ConnectionString("mongodb+srv://allankonar:QDFH4HJ0zBuJlPLX@cluster0.0qe9ipy.mongodb.net:27017/testing?connectTimeoutMS=2000"))
+      .applyToSocketSettings(builder ->
+      builder.connectTimeout(5L, SECONDS))
+      .build());
+
