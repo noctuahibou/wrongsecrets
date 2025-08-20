@@ -1,1 +1,1 @@
-{"last_found_secrets": [{"name": "AWS Keys - src/main/java/org/owasp/wrongsecrets/challenges/docker/transport.rs", "match": "275cf5a7725c9512d633ce5e50cc7261f5af55b4779d8850800c975af9f01da1"}]}
+{"last_found_secrets": [{"match": "656baf057906dc053f59195034ea0b8b9e32d0bb83b3bba6df2d9c9f72c660a5", "name": "Generic High Entropy Secret - commit://staged/src/main/java/org/owasp/wrongsecrets/challenges/docker/newFile.java"}]}
