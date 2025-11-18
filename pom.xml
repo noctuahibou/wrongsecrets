@@ -49,7 +49,7 @@
     <aws.sdk.version>2.30.23</aws.sdk.version>
     <bootstrap.version>5.3.3</bootstrap.version>
     <com.azure.spring.version>5.20.0</com.azure.spring.version>
-    <cyclonedx.core.version>9.1.0</cyclonedx.core.version>
+    <cyclonedx.core.version>11.0.1</cyclonedx.core.version>
     <datatables.version>2.1.8</datatables.version>
     <dependency-check-maven.version>11.1.1</dependency-check-maven.version>
     <gatling-maven-plugin.version>4.12.2</gatling-maven-plugin.version>
@@ -543,8 +543,8 @@
               <includes>
                 <include>.gitignore</include>
               </includes>
-              <trimTrailingWhitespace></trimTrailingWhitespace>
-              <endWithNewline></endWithNewline>
+              <trimTrailingWhitespace/>
+              <endWithNewline/>
               <indent>
                 <tabs>true</tabs>
                 <spacesPerTab>4</spacesPerTab>
@@ -556,7 +556,7 @@
               <include>src/main/java/**/*.java</include>
               <include>src/test/java/**/*.java</include>
             </includes>
-            <removeUnusedImports></removeUnusedImports>
+            <removeUnusedImports/>
             <googleJavaFormat>
               <style>GOOGLE</style>
               <reflowLongStrings>true</reflowLongStrings>
@@ -624,7 +624,7 @@
         </os>
       </activation>
       <properties>
-        <script.extension></script.extension>
+        <script.extension/>
       </properties>
     </profile>
   </profiles>
