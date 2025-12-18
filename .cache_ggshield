@@ -1,1 +1,1 @@
-{"last_found_secrets": [{"match": "7ce5c19bfa2430f941b98578c020ad4025b12cfa81a452f7fc2c08b1efb32128", "name": "Generic High Entropy Secret - commit://staged/src/main/java/org/owasp/wrongsecrets/challenges/docker/newFile.java"}]}
+{"last_found_secrets": [{"match": "bef84ad58bd6a8c646d72aafa6e6c016a94aaa705349a90b525b28b4ec7cff2f", "name": "Generic High Entropy Secret - commit://staged/src/main/java/org/owasp/wrongsecrets/challenges/docker/newFile.java"}]}
