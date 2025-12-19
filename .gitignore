@@ -100,3 +100,6 @@ scripts/sort_contibutors/contributors_file.*
 
 #optimizations
 .github/scripts/binary_version.txt
+
+# ggshield
+.cache_ggshield
