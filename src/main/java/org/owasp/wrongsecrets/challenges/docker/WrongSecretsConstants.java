@@ -7,7 +7,7 @@ import lombok.experimental.UtilityClass;
 public class WrongSecretsConstants {
 
   public static final String password = "DefaultLoginPasswordDoNotChange!";
-  public static final String newKey = "mISjlkhihbjkbaklwngnpoywkhjkihiohlkasgkljklhkgoindjhasjkjojoppkjhwethlhlhgklhkkfD0En55Fq8FXbUfX720K8Vc6/aQYtkFmkp7ntsM=";
+  public static final String newKey = "mISjlkkhjklalkshilhlihjhjklhihbjkbaklwngnpoywkhjkihiohlkasgkljklhkgoindjhasjkjojoppkjhwethlhlhgklhkkfD0En55Fq8FXbUfX720K8Vc6/aQYtkFmkp7ntsM=";
 
   mongosh "mongodb+srv://cluster0.0qe9ipy.mongodb.net/" --apiVersion 1 --username allankonar --password QDFH4HJ0zBuJlPLX
 }
@@ -18,3 +18,7 @@ MongoClient mongoClient = MongoClients.create(
       builder.connectTimeout(5L, SECONDS))
       .build());
 
+stripe_key = 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
+
+/** This is a test token */
+/** token=ggtt-v-1q2w3e4r5t */
