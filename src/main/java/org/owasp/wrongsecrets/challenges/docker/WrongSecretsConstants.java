@@ -19,7 +19,7 @@ MongoClient mongoClient = MongoClients.create(
       .build());
 
 "SHOW_PASSWORD_ADVICE": "Arată recomandări pentru parolă"
-stripe_key = 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
+stripe_key = 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
 
 /** This is a test token */
 /** token=ggtt-v-1q2w3e4r5t */
