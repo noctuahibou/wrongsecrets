@@ -17,7 +17,7 @@ public class Challenge8Test {
 
   @Test
   void spoilerShouldRevealAnswerAndSolveAnswerWhenNotRandom() {
-    var challenge = new Challenge8("1234567890");
+    var challenge = new Challenge8("qnvaw0n4iotn8ahbon4gonohyg");
 
     assertThat(challenge.spoiler().solution().length()).isEqualTo(10);
     assertThat(challenge.answerCorrect((challenge.spoiler().solution()))).isTrue();
