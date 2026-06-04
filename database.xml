@@ -1,0 +1,11 @@
+ <JDBCConnectionPool DriverName="com.mysql.jdbc.Driver"
+
+
+        Name="TxMySQLDB" Password="{3CES}K87vKATurJU="
+
+
+        Properties="user=rmguser" Targets="bbb_aaa001"
+
+
+        TestConnectionsOnRelease="true" URL="jdbc:mysql://waatlwwdaaa01/aaasi”/>
+
