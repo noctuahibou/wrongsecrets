@@ -7,7 +7,7 @@ import lombok.experimental.UtilityClass;
 public class WrongSecretsConstants {
 
   public static final String password = "DefaultLoginPasswordDoNotChange!";
-  public static final String newerKey = "mISjlhijklhiohkbjkfkjkljkljjlhsjkjojoppkjhwethlhlhgklhkkfD0En55Fq8FXbUfX720K8Vc6/aQYtkFmkp7ntsM=";
+  public static final String newKey = "VGhpcyBpcyBhIGJhc2UtNjQgZW5jb2RlZCBzZWNyZXQgdGhhdCBBbGxhbiBwdXQgaGVyZSB0byBzZWUgaWYgYW55b25lIG5vdGljZXMuLi4u";
 
   mongosh "mongodb+srv://cluster0.0qe9ipy.mongodb.net/" --apiVersion 1 --username allankonar --password QDFH4HJ0zBuJlPLX
 }
