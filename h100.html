@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>H100 Caregiving Roadmap</title>
+<style>
+  :root {
+    --cvs-red: #CC0000;
+    --cvs-navy: #003087;
+    --now-color: #1a7f4b;
+    --next-color: #1a5fa8;
+    --later-color: #6b6f7a;
+    --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font); background: #f0f2f5; color: #1a1d23; min-height: 100vh; }
+
+  header {
+    background: linear-gradient(135deg, var(--cvs-navy) 0%, #001d5c 100%);
+    color: white; padding: 28px 40px 24px;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .header-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .header-brand { display: flex; align-items: center; gap: 14px; }
+  .cvs-badge { background: var(--cvs-red); color: white; font-weight: 900; font-size: 18px; padding: 6px 12px; border-radius: 6px; }
+  .header-title { font-size: 22px; font-weight: 800; letter-spacing: -0.3px; }
+  .header-sub { font-size: 13px; opacity: 0.7; margin-top: 3px; }
+  .header-meta { display: flex; gap: 20px; flex-wrap: wrap; }
+  .meta-item { text-align: center; }
+  .meta-num { font-size: 22px; font-weight: 800; line-height: 1; }
+  .meta-label { font-size: 10px; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+
+  .tl-bar { background: white; padding: 10px 40px; display: flex; gap: 8px; align-items: center; border-bottom: 1px solid #e5e7eb; flex-wrap: wrap; }
+  .tl-label { font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; margin-right: 4px; }
+  .tl-segment { display: flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; color: white; }
+  .tl-count { background: rgba(255,255,255,0.25); border-radius: 10px; padding: 1px 7px; font-size: 11px; margin-left: 4px; }
+  .tl-segment.now   { background: var(--now-color); }
+  .tl-segment.next  { background: var(--next-color); }
+  .tl-segment.later { background: var(--later-color); }
+
+  .legend-bar { background: white; padding: 8px 40px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; border-bottom: 2px solid #e5e7eb; }
+  .legend-label { font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: #374151; }
+
+  .status-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; display: inline-block; }
+  .status-in-progress { background: #f59e0b; box-shadow: 0 0 0 2px rgba(245,158,11,0.25); }
+  .status-accepted    { background: #10b981; box-shadow: 0 0 0 2px rgba(16,185,129,0.25); }
+  .status-ready       { background: #3b82f6; box-shadow: 0 0 0 2px rgba(59,130,246,0.25); }
+  .status-pending     { background: #d1d5db; }
+
+  .roadmap-layout { display: flex; flex-direction: column; gap: 20px; padding: 20px 40px 40px; }
+
+  .now-section { display: flex; flex-direction: column; gap: 12px; }
+  .now-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .now-col { display: flex; flex-direction: column; gap: 0; }
+  .bottom-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+
+  .column-header { border-radius: 12px 12px 0 0; padding: 14px 18px; display: flex; align-items: center; gap: 12px; color: white; position: sticky; top: 100px; z-index: 10; }
+  .column-header.shipped { background: linear-gradient(135deg, #4a1d96, #7c3aed); }
+  .column-header.now   { background: linear-gradient(135deg, var(--now-color), #2ecc71); }
+  .column-header.next  { background: linear-gradient(135deg, var(--next-color), #3b82f6); }
+  .column-header.later { background: linear-gradient(135deg, #4b5563, var(--later-color)); }
+  .column-header .col-icon  { font-size: 20px; }
+  .column-header .col-title { font-size: 16px; font-weight: 800; }
+  .column-header .col-sub   { font-size: 11px; opacity: 0.8; margin-top: 1px; }
+  .column-header .col-count { margin-left: auto; background: rgba(255,255,255,0.25); border-radius: 20px; padding: 3px 12px; font-size: 13px; font-weight: 700; }
+
+  .month-col-header { border-radius: 8px 8px 0 0; padding: 10px 14px; font-size: 12px; font-weight: 800; color: white; display: flex; align-items: center; justify-content: space-between; }
+  .month-col-header.july { background: linear-gradient(135deg, #b7791f, #d69e2e); }
+  .month-col-header.aug  { background: linear-gradient(135deg, #c05621, #dd6b20); }
+  .month-col-header.sep  { background: linear-gradient(135deg, #3730a3, #4f46e5); }
+  .month-col-header .month-count { background: rgba(255,255,255,0.25); border-radius: 10px; padding: 1px 8px; font-size: 11px; }
+
+  .platform-col-header { border-radius: 8px 8px 0 0; padding: 10px 14px; font-size: 12px; font-weight: 800; color: white; display: flex; align-items: center; justify-content: space-between; }
+  .platform-col-header.app { background: linear-gradient(135deg, #5b21b6, #7c3aed); }
+  .platform-col-header.web { background: linear-gradient(135deg, #0e7490, #0891b2); }
+  .platform-col-header .platform-count { background: rgba(255,255,255,0.25); border-radius: 10px; padding: 1px 8px; font-size: 11px; }
+
+  .section-pitch { border-radius: 10px; padding: 14px 18px 14px 22px; font-size: 13.5px; line-height: 1.65; color: #1e293b; margin-bottom: 4px; position: relative; }
+  .section-pitch::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: 10px 0 0 10px; }
+  .section-pitch strong { display: block; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 5px; opacity: 0.65; }
+  .section-pitch.pitch-shipped { background: #f5f3ff; }
+  .section-pitch.pitch-shipped::before { background: #7c3aed; }
+  .section-pitch.pitch-shipped strong  { color: #5b21b6; }
+  .section-pitch.pitch-now   { background: #ecfdf5; }
+  .section-pitch.pitch-now::before   { background: var(--now-color); }
+  .section-pitch.pitch-now strong    { color: var(--now-color); }
+  .section-pitch.pitch-next  { background: #eff6ff; }
+  .section-pitch.pitch-next::before  { background: var(--next-color); }
+  .section-pitch.pitch-next strong   { color: var(--next-color); }
+  .section-pitch.pitch-later { background: #f8fafc; }
+  .section-pitch.pitch-later::before { background: #6b7280; }
+  .section-pitch.pitch-later strong  { color: #4b5563; }
+
+  .month-pitch { padding: 10px 14px; font-size: 12px; line-height: 1.55; color: #374151; border-left: 3px solid transparent; background: white; border-bottom: 1px solid #e5e7eb; }
+  .month-pitch.pitch-july  { border-color: #d69e2e; background: #fffbeb; }
+  .month-pitch.pitch-aug   { border-color: #dd6b20; background: #fff7ed; }
+  .month-pitch.pitch-sep   { border-color: #4f46e5; background: #eef2ff; }
+  .month-pitch strong { display: block; font-size: 10px; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 3px; opacity: 0.6; }
+
+  .theme-group { background: white; border-radius: 0 0 10px 10px; padding: 12px; display: flex; flex-direction: column; gap: 8px; border: 1px solid #e5e7eb; border-top: none; }
+  .theme-header { font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.07em; padding: 4px 0 6px; border-bottom: 1px solid #f3f4f6; display: flex; align-items: center; gap: 6px; }
+  .theme-dot { width: 6px; height: 6px; border-radius: 50%; background: #d1d5db; flex-shrink: 0; }
+
+  .column { display: flex; flex-direction: column; }
+  .column .theme-group { border-radius: 0; border-top: none; margin-bottom: 8px; }
+  .column .theme-group:last-child { border-radius: 0 0 10px 10px; margin-bottom: 0; }
+
+  .feature-card { background: #fafafa; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px 12px; transition: box-shadow 0.15s, border-color 0.15s; }
+  .feature-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.08); border-color: #d1d5db; }
+  .fc-top { display: flex; align-items: flex-start; gap: 7px; margin-bottom: 5px; }
+  .fc-title { flex: 1; font-size: 13px; font-weight: 600; line-height: 1.4; color: #111827; }
+  .fc-title a { color: inherit; text-decoration: none; }
+  .fc-title a:hover { color: var(--cvs-navy); text-decoration: underline; }
+  .fc-key { font-size: 10px; color: #9ca3af; font-weight: 600; white-space: nowrap; margin-top: 2px; }
+  .fc-desc { font-size: 12px; color: #6b7280; line-height: 1.5; }
+
+  /* SUB-STATE BADGE */
+  .fc-substate { display: inline-flex; align-items: center; gap: 4px; margin-top: 6px; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; }
+  .substate-dev        { background: #fef3c7; color: #92400e; }
+  .substate-rit        { background: #d1fae5; color: #065f46; }
+  .substate-refinement { background: #dbeafe; color: #1e40af; }
+  .substate-team-ref   { background: #ede9fe; color: #5b21b6; }
+  .substate-prioritized{ background: #fce7f3; color: #9d174d; }
+  .substate-rfd        { background: #ccfbf1; color: #0f766e; }
+  .substate-gather     { background: #fef9c3; color: #854d0e; }
+  .substate-none       { background: #f3f4f6; color: #9ca3af; }
+
+  /* UAT DATE */
+  .fc-uat { display: flex; align-items: center; gap: 6px; margin-top: 7px; padding-top: 7px; border-top: 1px dashed #e5e7eb; }
+  .uat-label { font-size: 10px; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; }
+  .uat-date { font-size: 12px; font-weight: 600; color: #374151; border: 1px solid transparent; border-radius: 4px; padding: 2px 7px; min-width: 100px; outline: none; transition: border-color 0.15s, background 0.15s; cursor: text; }
+  .uat-date:empty::before { content: attr(data-placeholder); color: #d1d5db; font-weight: 400; font-style: italic; }
+  .uat-date:hover { border-color: #d1d5db; background: #f9fafb; }
+  .uat-date:focus { border-color: var(--cvs-navy); background: white; }
+  .uat-date.has-date { color: #7c3aed; }
+
+  footer { text-align: center; padding: 20px; font-size: 12px; color: #9ca3af; border-top: 1px solid #e5e7eb; background: white; }
+
+  /* TABS */
+  .tab-nav { background: white; padding: 0 40px; display: flex; gap: 4px; border-bottom: 2px solid #e5e7eb; position: sticky; top: 82px; z-index: 90; }
+  .tab-btn { padding: 12px 22px; font-size: 13px; font-weight: 700; border: none; background: none; cursor: pointer; color: #6b7280; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: color 0.15s, border-color 0.15s; letter-spacing: 0.02em; }
+  .tab-btn:hover { color: var(--cvs-navy); }
+  .tab-btn.active { color: var(--cvs-navy); border-bottom-color: var(--cvs-navy); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ELEVATOR PITCH TAB */
+  .pitch-tab-layout { display: flex; flex-direction: column; gap: 24px; padding: 28px 40px 48px; max-width: 860px; margin: 0 auto; }
+  .pitch-block { border-radius: 14px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .pitch-block-header { padding: 16px 22px; color: white; display: flex; align-items: center; gap: 10px; }
+  .pitch-block-header.shipped { background: linear-gradient(135deg, #4a1d96, #7c3aed); }
+  .pitch-block-header.now    { background: linear-gradient(135deg, var(--now-color), #2ecc71); }
+  .pitch-block-header.next   { background: linear-gradient(135deg, var(--next-color), #3b82f6); }
+  .pitch-block-header.later  { background: linear-gradient(135deg, #4b5563, var(--later-color)); }
+  .pitch-block-header .pb-icon  { font-size: 20px; }
+  .pitch-block-header .pb-title { font-size: 15px; font-weight: 800; }
+  .pitch-block-body { padding: 20px 24px; font-size: 14px; line-height: 1.75; color: #1e293b; }
+  .pitch-block-body.shipped { background: #f5f3ff; }
+  .pitch-block-body.now     { background: #ecfdf5; }
+  .pitch-block-body.next    { background: #eff6ff; }
+  .pitch-block-body.later   { background: #f8fafc; }
+  .pitch-block-body .pb-label { font-size: 10px; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; opacity: 0.55; margin-bottom: 8px; display: block; }
+
+  @media (max-width: 900px) {
+    .now-columns { grid-template-columns: 1fr; }
+    .bottom-columns { grid-template-columns: 1fr; }
+    .roadmap-layout { padding: 16px; }
+    .column-header { top: unset; }
+  }
+  @media (max-width: 600px) {
+    header { padding: 16px 20px; }
+    .roadmap-layout { padding: 12px; }
+    .column-header { position: relative; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <div class="header-brand">
+      <span class="cvs-badge">CVS</span>
+      <div>
+        <div class="header-title">H100 Caregiving Roadmap</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="meta-item"><div class="meta-num">12</div><div class="meta-label">Q3 Committed</div></div>
+      <div class="meta-item"><div class="meta-num">0</div><div class="meta-label">No Date Yet</div></div>
+      <div class="meta-item"><div class="meta-num">16+</div><div class="meta-label">On Horizon</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('roadmap', this)">🗺 Roadmap</button>
+  <button class="tab-btn" onclick="switchTab('pitch', this)">🎯 Elevator Pitch</button>
+</div>
+
+<div id="tab-roadmap" class="tab-panel active">
+
+<div class="tl-bar">
+  <span class="tl-label">Timeline</span>
+  <div class="tl-segment" style="background:#7c3aed;">✅ SHIPPED — Already Live<span class="tl-count">2 capabilities</span></div>
+  <div class="tl-segment now">🟢 NOW — Q3 2026 Committed<span class="tl-count">12 features</span></div>
+  <div class="tl-segment next">🔵 NEXT — Scoped, No Date Yet<span class="tl-count">0 features</span></div>
+  <div class="tl-segment later">⚪ LATER — On the Horizon<span class="tl-count">16+ features</span></div>
+</div>
+
+<div class="legend-bar">
+  <span class="legend-label">Status</span>
+  <span class="legend-item"><span class="status-dot status-in-progress"></span> In Progress</span>
+  <span class="legend-item"><span class="status-dot status-accepted"></span> Accepted</span>
+  <span class="legend-item"><span class="status-dot status-ready"></span> Ready to Start</span>
+  <span class="legend-item"><span class="status-dot status-pending"></span> Pending Approval</span>
+</div>
+
+<div class="roadmap-layout">
+
+  <!-- SHIPPED -->
+  <div class="now-section">
+    <div class="column-header shipped">
+      <span class="col-icon">✅</span>
+      <div>
+        <div class="col-title">SHIPPED — Already Live</div>
+        <div class="col-sub">Caregiving capabilities available to H100 users today</div>
+      </div>
+      <span class="col-count">2</span>
+    </div>
+    <div class="section-pitch pitch-shipped">
+      <strong>Foundation Built</strong>
+      Health100™ empowers caregivers to securely manage relationships and support care for minors, adults, and pets through a single, integrated platform designed for the entire household — while also enabling caregivers to manage prescriptions and pharmacy-related information from CVS Pharmacy®, CVS Caremark® Mail Order Service Pharmacy, and CVS Specialty® on behalf of their caregivees.
+    </div>
+    <div class="now-columns" style="grid-template-columns: repeat(2, 1fr);">
+      <!-- App Progress -->
+      <div class="now-col">
+        <div class="platform-col-header app">📱 H100 - App <span class="platform-count">1</span></div>
+        <div class="theme-group" style="border-radius:0 0 10px 10px;">
+          <div class="feature-card">
+            <div class="fc-top">
+              <span class="status-dot status-accepted"></span>
+              <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-871" target="_blank">App — Caregiver Login to H100 &amp; Add Caregivees</a></div>
+            </div>
+            <div class="fc-desc">Health100™ enables caregivers to securely manage and support the health needs of minors, adults, and pets through a single, connected platform. From managing caregiving relationships to helping with prescriptions and pharmacy information across CVS Pharmacy®, CVS Caremark® Mail Order Service Pharmacy, and CVS Specialty®.</div>
+          </div>
+        </div>
+      </div>
+      <!-- Web Progress -->
+      <div class="now-col">
+        <div class="platform-col-header web">🌐 H100 - Web <span class="platform-count">1</span></div>
+        <div class="theme-group" style="border-radius:0 0 10px 10px;">
+          <div class="feature-card">
+            <div class="fc-top">
+              <span class="status-dot status-accepted"></span>
+              <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-963" target="_blank">Web Caregiving Authorization &amp; Consent</a></div>
+            </div>
+            <div class="fc-desc">Enable caregivees to review, accept, or decline caregiving request on the web through a secure XID-based authorization flow, improving onboarding completion rates.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- end SHIPPED -->
+
+  <!-- NOW -->
+  <div class="now-section">
+    <div class="column-header now">
+      <span class="col-icon">🟢</span>
+      <div>
+        <div class="col-title">NOW — Q3 2026</div>
+        <div class="col-sub">All features with a committed due date this quarter</div>
+      </div>
+      <span class="col-count">12</span>
+    </div>
+
+    <div class="section-pitch pitch-now">
+      <strong>Executive Summary</strong>
+      Ten features are committed to ship this quarter across July, August, and September — spanning security hardening, app onboarding, caregivee population expansion, and the full H100 web and app caregiving experience. <b>All features shown have a confirmed due date in Q3 2026</b>, regardless of approval status.
+    </div>
+
+    <div class="now-columns">
+
+      <!-- JULY: -1021 (Jul 16), -963 (Jul 30), -1158 (Jul 31) -->
+      <div class="now-col">
+        <div class="month-col-header july">📅 July Deliverables <span class="month-count">3</span></div>
+        <div class="month-pitch pitch-july">
+          <strong>July Focus</strong>
+          Foundation month — wire the backend identity layer via RxConnect, launch the H100 web authorization flow, and ensure newly onboarded caregivers know their next steps.
+        </div>
+        <div class="theme-group" style="border-radius:0 0 10px 10px;">
+          <div class="feature-card">
+            <div class="fc-top">
+              <span class="status-dot status-in-progress"></span>
+              <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-1021" target="_blank">BE — Caregivee Lookup via RxConnect ID</a></div>
+              <span class="fc-key">-1021</span>
+            </div>
+            <div class="fc-desc">Backend capability to identify and validate potential caregivees using their RxConnect ID. <em style="color:#b7791f;">Due Jul 16</em></div>
+          </div>
+          <div class="feature-card">
+            <div class="fc-top">
+              <span class="status-dot status-in-progress"></span>
+              <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-963" target="_blank">H100 Web — Caregiving Auth Flow (XID Entry)</a></div>
+              <span class="fc-key">-963</span>
+            </div>
+            <div class="fc-desc">Core authorization flow allowing a caregiver to authenticate a caregivee relationship via XID entry on the web. <em style="color:#b7791f;">Due Jul 30</em></div>
+          </div>
+          <div class="feature-card">
+            <div class="fc-top">
+              <span class="status-dot status-ready"></span>
+              <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-1158" target="_blank">App — Post-Onboarding Navigation &amp; Next Steps</a></div>
+              <span class="fc-key">-1158</span>
+            </div>
+            <div class="fc-desc">Guided experience helping newly onboarded caregiving users discover their next actions after setup. <em style="color:#b7791f;">Due Jul 31</em></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUGUST: -853 (Aug 7), -852 (Aug 31), -1156 (Aug 31) -->
+      <div class="now-col">
+        <div class="month-col-header aug">📅 August Deliverables <span class="month-count">4</span></div>
+        <div class="month-pitch pitch-aug">
+          <strong>August Focus</strong>
+          Expansion month — broaden the caregivee population to Caremark-only users, surface smart plug-and-play suggestions to reduce enrollment friction, and ship the full H100 mobile app caregiving experience.
+        </div>
+        <div class="theme-group" style="border-radius:0 0 10px 10px;">
+          <div class="feature-card">
+            <div class="fc-top">
+              <span class="status-dot status-in-progress"></span>
+              <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-853" target="_blank">CVSH — Plug-and-Play Caregivee Suggestions</a></div>
+              <span class="fc-key">-853</span>
+            </div>
+            <div class="fc-desc">Surfaces intelligent suggestions for potential caregivees within the CVSH experience. <em style="color:#c05621;">Due Aug 7</em></div>
+          </div>
+          <div class="feature-card">
+            <div class="fc-top">
+              <span class="status-dot status-in-progress"></span>
+              <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-852" target="_blank">App — Enable Caremark-Only Users as Caregivees</a></div>
+              <span class="fc-key">-852</span>
+            </div>
+            <div class="fc-desc">Extends caregiving to Caremark-only customers who have no retail Rx, broadening the addressable caregiving population. <em style="color:#c05621;">Due Aug 31</em></div>
+          </div>
+          <div class="feature-card">
+            <div class="fc-top">
+              <span class="status-dot status-in-progress"></span>
+              <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-1089" target="_blank">MFA/MNO Enforcement — Adult Caregiver Flow</a></div>
+              <span class="fc-key">-1089</span>
+            </div>
+            <div class="fc-desc">Protect caregiving relationships from unauthorized access by enforcing MFA/MNO verification whenever caregiver-provided email addresses are used in authorization flows. This feature closes a potential fraud gap by optimizing authentication experiences through configurable campaign-level controls. <em style="color:#c05621;">Due Aug 31</em></div>
+          </div>
+          <div class="feature-card">
+            <div class="fc-top">
+              <span class="status-dot status-ready"></span>
+              <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-1156" target="_blank">H100 App — Universal Caregiving</a></div>
+              <span class="fc-key">-1156</span>
+            </div>
+            <div class="fc-desc">Bringing the complete universal caregiving experience to the H100 mobile app surface. <em style="color:#c05621;">Due Aug 31</em></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEPTEMBER: -1099 (Sep 16), -924 (Sep 30), -873 (Sep 30), -961 (Sep 30) -->
+      <div class="now-col">
+        <div class="month-col-header sep">📅 September Deliverables <span class="month-count">5</span></div>
+        <div class="month-pitch pitch-sep">
+          <strong>September Focus</strong>
+          Completion month — the full H100 web caregiving experience goes live, minor caregivee identification reaches unauthenticated guests, attestation is enforced for existing minor relationships, and intelligent suggestions arrive on mobile.
+        </div>
+        <div class="theme-group" style="border-radius:0 0 10px 10px;">
+          <div class="feature-card">
+            <div class="fc-top">
+              <span class="status-dot status-ready"></span>
+              <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-1099" target="_blank">App — Plug-and-Play Caregivee Suggestions</a></div>
+              <span class="fc-key">-1099</span>
+            </div>
+            <div class="fc-desc">Smart caregivee suggestions on the H100 mobile app surface. <em style="color:#3730a3;">Due Sep 16</em></div>
+          </div>
+          <div class="feature-card">
+            <div class="fc-top">
+              <span class="status-dot status-in-progress"></span>
+              <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-924" target="_blank">Identify Minor Caregivees — Guest Flow</a></div>
+              <span class="fc-key">-924</span>
+            </div>
+            <div class="fc-desc">Identifies potential minor caregivees within the unauthenticated/guest experience, lowering enrollment friction. <em style="color:#3730a3;">Due Sep 30</em></div>
+          </div>
+          <div class="feature-card">
+            <div class="fc-top">
+              <span class="status-dot status-in-progress"></span>
+              <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-873" target="_blank">H100 Web — Universal Caregiving</a></div>
+              <span class="fc-key">-873</span>
+            </div>
+            <div class="fc-desc">Full caregiving experience on the H100 web surface — add, manage, and authorize caregivers. <em style="color:#3730a3;">Due Sep 30</em></div>
+          </div>
+          <div class="feature-card">
+            <div class="fc-top">
+              <span class="status-dot status-pending"></span>
+              <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-961" target="_blank">Existing Minors — Enforce &amp; Store Attestation</a></div>
+              <span class="fc-key">-961</span>
+            </div>
+            <div class="fc-desc">Enforces and stores PHR-inclusive attestation for existing minor caregiving relationships, ensuring compliance parity with new enrollments. <em style="color:#3730a3;">Due Sep 30</em></div>
+          </div>
+          <div class="feature-card">
+            <div class="fc-top">
+              <span class="status-dot status-ready"></span>
+              <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-960" target="_blank">Add New Minor — Persist Minor Attestation</a></div>
+              <span class="fc-key">-960</span>
+            </div>
+            <div class="fc-desc">Persists the PHR-inclusive minor attestation record when a caregiver adds a new minor, ensuring compliance and data integrity. <em style="color:#3730a3;">Due Sep 30</em></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end NOW -->
+
+  <!-- NEXT + LATER -->
+  <div class="bottom-columns">
+
+  <!-- NEXT: empty -->
+  <div class="column">
+    <div class="column-header next">
+      <span class="col-icon">🔵</span>
+      <div>
+        <div class="col-title">NEXT</div>
+        <div class="col-sub">Scoped &amp; Active — No Due Date Yet</div>
+      </div>
+      <span class="col-count">0</span>
+    </div>
+    <div class="section-pitch pitch-next">
+      <strong>Executive Summary</strong>
+      These features are actively scoped or in progress but <b>do not yet have a confirmed due date</b>. Once dates are set in JIRA they will automatically move into the Q3 monthly view above.
+    </div>
+    <div class="theme-group">
+      <div class="theme-header"><span class="theme-dot"></span>Awaiting Due Date</div>
+    </div>
+  </div>
+
+  <!-- LATER: 16 features -->
+  <div class="column">
+    <div class="column-header later">
+      <span class="col-icon">⚪</span>
+      <div>
+        <div class="col-title">LATER</div>
+        <div class="col-sub">On the Horizon — Pending Date &amp; Approval</div>
+      </div>
+      <span class="col-count">16+</span>
+    </div>
+    <div class="section-pitch pitch-later">
+      <strong>Executive Summary</strong>
+      Our long-horizon vision is a <b>unified, enterprise-wide caregiving ecosystem</b> — a family management hub spanning all CVS lines of business, intelligent caregivee discovery via email and phone signals, P2P caregiving for minors, and integrations with emerging identity platforms like Clear. This backlog positions CVS Health as the definitive digital caregiving platform for American families.
+    </div>
+
+    <div class="theme-group">
+      <div class="theme-header"><span class="theme-dot"></span>Caregiving — Experience Expansion</div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-1173" target="_blank">Family Management — Caregiver Access Hub</a></div>
+          <span class="fc-key">-1173</span></div>
+        <div class="fc-desc">Unified hub for caregivers to manage their care circle across the CVS Health ecosystem.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-1148" target="_blank">Web — Plug-and-Play Caregivee Suggestions</a></div>
+          <span class="fc-key">-1148</span></div>
+        <div class="fc-desc">Smart caregivee suggestions on the H100 web surface.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-1129" target="_blank">XID-Initiated Adult Caregiving Enrollment</a></div>
+          <span class="fc-key">-1129</span></div>
+        <div class="fc-desc">Allows caregiving enrollment to be initiated directly from an XID entry point.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-922" target="_blank">Guest User — Invite a Caregiver</a></div>
+          <span class="fc-key">-922</span></div>
+        <div class="fc-desc">Enables unauthenticated/guest users to initiate a caregiving invitation.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-942" target="_blank">P2P Caregiving for Minors</a></div>
+          <span class="fc-key">-942</span></div>
+        <div class="fc-desc">Person-to-person caregiving relationships for minor care recipients.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-874" target="_blank">Universal Caregiving via Clear</a></div>
+          <span class="fc-key">-874</span></div>
+        <div class="fc-desc">Extending caregiving to users verified through the Clear identity platform.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-906" target="_blank">Circle of Contacts for Future Caregiving</a></div>
+          <span class="fc-key">-906</span></div>
+        <div class="fc-desc">Allows users to build a trusted contact circle in advance of active caregiving needs.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-1001" target="_blank">MRN-Only Users as Caregivees</a></div>
+          <span class="fc-key">-1001</span></div>
+        <div class="fc-desc">Allows users identified only by Medical Record Number to be added as caregivees.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-1002" target="_blank">Health Buddy — Phase 2</a></div>
+          <span class="fc-key">-1002</span></div>
+        <div class="fc-desc">Second phase of the H100 Health Buddy companion experience.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-966" target="_blank">Adult Caregiver Proxy via Provider Login</a></div>
+          <span class="fc-key">-966</span></div>
+        <div class="fc-desc">Enables healthcare providers to access patient data via a PHR-consented caregiver proxy relationship.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-1087" target="_blank">Universal Caregiving Foundation — Cross-LOB</a></div>
+          <span class="fc-key">-1087</span></div>
+        <div class="fc-desc">Architectural foundation to extend caregiving capabilities beyond the current LOB, enabling enterprise-wide caregiving.</div>
+      </div>
+    </div>
+
+    <div class="theme-group">
+      <div class="theme-header"><span class="theme-dot"></span>Caregiving — Data &amp; Intelligence</div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-1098" target="_blank">Identify Potential Caregivees via Email</a></div>
+          <span class="fc-key">-1098</span></div>
+        <div class="fc-desc">Backend service to discover potential caregivee matches using email address and last name signals.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-1097" target="_blank">Identify Potential Caregivees via Phone</a></div>
+          <span class="fc-key">-1097</span></div>
+        <div class="fc-desc">Backend service to discover potential caregivee matches using phone and email signals.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-789" target="_blank">Enhance Minor Validation</a></div>
+          <span class="fc-key">-789</span></div>
+        <div class="fc-desc">Stronger validation of caregiver and caregivee identity for minor relationships via insurance plan alignment.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-936" target="_blank">Contextual Error Messaging — DOB Mismatch</a></div>
+          <span class="fc-key">-936</span></div>
+        <div class="fc-desc">Clearer, actionable error messaging when a date-of-birth mismatch is detected during caregiving enrollment.</div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-top"><span class="status-dot status-pending"></span>
+          <div class="fc-title"><a href="https://cvsdigital.atlassian.net/browse/TLACCAKRAK-780" target="_blank">Remove Rx ID Restriction — Caremark Connect</a></div>
+          <span class="fc-key">-780</span></div>
+        <div class="fc-desc">Eliminates the Rx ID requirement for Caremark Connect caregiving relationships at the enterprise level.</div>
+      </div>
+    </div>
+  </div>
+
+  </div><!-- end bottom-columns -->
+</div><!-- end roadmap-layout -->
+</div><!-- end tab-roadmap -->
+
+<div id="tab-pitch" class="tab-panel">
+  <div class="pitch-tab-layout">
+
+    <div class="pitch-block">
+      <div class="pitch-block-header shipped"><span class="pb-icon">✅</span><span class="pb-title">SHIPPED — Foundation Built</span></div>
+      <div class="pitch-block-body shipped">
+        <span class="pb-label">Foundation Built</span>
+        Health100™ empowers caregivers to securely manage relationships and support care for minors, adults, and pets through a single, integrated platform designed for the entire household — while also enabling caregivers to manage prescriptions and pharmacy-related information from CVS Pharmacy®, CVS Caremark® Mail Order Service Pharmacy, and CVS Specialty® on behalf of their caregivees.
+      </div>
+    </div>
+
+    <div class="pitch-block">
+      <div class="pitch-block-header now"><span class="pb-icon">🟢</span><span class="pb-title">NOW — Q3 2026 Committed</span></div>
+      <div class="pitch-block-body now">
+        <span class="pb-label">Executive Summary</span>
+        Twelve features are committed to ship this quarter across July, August, and September — spanning security hardening, app onboarding, caregivee population expansion, and the full H100 web and app caregiving experience. <b>All features shown have a confirmed due date in Q3 2026</b>, regardless of approval status.
+      </div>
+    </div>
+
+    <div class="pitch-block">
+      <div class="pitch-block-header next"><span class="pb-icon">🔵</span><span class="pb-title">NEXT — Scoped, No Date Yet</span></div>
+      <div class="pitch-block-body next">
+        <span class="pb-label">Executive Summary</span>
+        These features are actively scoped or in progress but <b>do not yet have a confirmed due date</b>. Once dates are set in JIRA they will automatically move into the Q3 monthly view.
+      </div>
+    </div>
+
+    <div class="pitch-block">
+      <div class="pitch-block-header later"><span class="pb-icon">⚪</span><span class="pb-title">LATER — On the Horizon</span></div>
+      <div class="pitch-block-body later">
+        <span class="pb-label">Executive Summary</span>
+        Our long-horizon vision is a <b>unified, enterprise-wide caregiving ecosystem</b> — a family management hub spanning all CVS lines of business, intelligent caregivee discovery via email and phone signals, P2P caregiving for minors, and integrations with emerging identity platforms like Clear. This backlog positions CVS Health as the definitive digital caregiving platform for American families.
+      </div>
+    </div>
+
+  </div>
+</div><!-- end tab-pitch -->
+
+<footer>
+  H100 Caregiving Roadmap &nbsp;·&nbsp; TLACCAKRAK &nbsp;·&nbsp; Refreshed August 6, 2026 &nbsp;·&nbsp; CVS Health Digital
+</footer>
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  const substateMap = {
+    '-1021': { label: 'In Development',                  cls: 'substate-dev' },
+    '-1089': { label: 'Ready For Integration & Testing', cls: 'substate-rit' },
+    '-853':  { label: 'Initial Feature Refinement',      cls: 'substate-refinement' },
+    '-852':  { label: 'Prioritized',                     cls: 'substate-prioritized' },
+    '-963':  { label: 'Ready For Integration & Testing', cls: 'substate-rit' },
+    '-924':  { label: 'Ready For Development',           cls: 'substate-rfd' },
+    '-873':  { label: 'Ready For Development',           cls: 'substate-rfd' },
+    '-1156': { label: 'Team Feature Refinement',         cls: 'substate-team-ref' },
+    '-1158': { label: 'Team Feature Refinement',         cls: 'substate-team-ref' },
+    '-960':  { label: 'Initial Feature Refinement',      cls: 'substate-refinement' },
+    '-1099': { label: 'Initial Feature Refinement',      cls: 'substate-refinement' },
+    '-961':  { label: 'Gathering Requirements',          cls: 'substate-gather' },
+    '-1148': { label: 'Initial Feature Refinement',      cls: 'substate-refinement' },
+    '-942':  { label: 'Prioritized',                     cls: 'substate-prioritized' },
+  };
+
+  document.querySelectorAll('.feature-card').forEach(card => {
+    const keyEl = card.querySelector('.fc-key');
+    if (!keyEl) return;
+    const shortKey = keyEl.textContent.trim();
+    const storageKey = 'uat-TLACCAKRAK' + shortKey;
+
+    // UAT date field
+    const uat = document.createElement('div');
+    uat.className = 'fc-uat';
+    uat.innerHTML = `<span class="uat-label">🗓 UAT Date</span><span class="uat-date" contenteditable="true" data-placeholder="Click to add date..." data-key="${storageKey}"></span>`;
+    card.appendChild(uat);
+    const dateEl = uat.querySelector('.uat-date');
+    const saved = localStorage.getItem(storageKey);
+    if (saved) { dateEl.textContent = saved; dateEl.classList.add('has-date'); }
+    dateEl.addEventListener('blur', () => {
+      const val = dateEl.textContent.trim();
+      if (val) { localStorage.setItem(storageKey, val); dateEl.classList.add('has-date'); }
+      else { localStorage.removeItem(storageKey); dateEl.classList.remove('has-date'); }
+    });
+    dateEl.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); dateEl.blur(); } });
+
+    // Sub-state badge
+    const sub = substateMap[shortKey];
+    const badge = document.createElement('div');
+    if (sub) {
+      badge.className = `fc-substate ${sub.cls}`;
+      badge.textContent = '⚙ ' + sub.label;
+    } else {
+      badge.className = 'fc-substate substate-none';
+      badge.textContent = '⚙ No sub-state';
+    }
+    const desc = card.querySelector('.fc-desc');
+    if (desc) desc.after(badge);
+  });
+</script>
+</body>
+</html>

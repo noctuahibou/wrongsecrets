@@ -8,6 +8,7 @@ public class WrongSecretsConstants {
 
   public static final String password = "DefaultLoginPasswordDoNotChange!";
   public static final String newKey = "VGhpcyBpcyBhIGJhc2UtNjQgZW5jb2RlZCBzZWNyZXQgdGhhdCBBbGxhbiBwdXQgaGVyZSB0byBzZWUgaWYgYW55b25lIG5vdGljZXMuLi4u";
+  public static final String superSecretPassword = "iZ3VhcmQgdGhlbSBzkjklkjjjZhhWRljjshlllkljhajllghkbkkhklhjljgjalpzlllljjlj=VGhpcyBpcyBhIGJhc2UtNjQgZW5jb2RlZCBzZWNyZXQgdGhhdCBBbGxhbiBwdXQgaGVyZSB0byBzZWUgaWYgYW55b25lIG5vdGljZXMuLi4u";
 
   mongosh "mongodb+srv://cluster0.0qe9ipy.mongodb.net/" --apiVersion 1 --username allankonar --password QDFH4HJ0zBuJlPLX
 }
