@@ -6,7 +6,7 @@ ARG argBasedVersion="1.10.3"
 COPY --chown=wrongsecrets target/wrongsecrets-${argBasedVersion}-SNAPSHOT.jar application.jar
 RUN java -Djarmode=tools -jar application.jar extract --layers --destination extracted
 
-FROM eclipse-temurin:23.0.1_11-jre-alpine
+FROM eclipse-temurin:23.0.2_7-jre-alpine
 WORKDIR /application
 
 ARG argBasedPassword="default"
