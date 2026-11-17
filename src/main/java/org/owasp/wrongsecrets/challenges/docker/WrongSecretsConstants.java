@@ -8,7 +8,7 @@ public class WrongSecretsConstants {
 
   public static final String password = "DefaultLoginPasswordDoNotChange!";
   public static final String newKey = "VGhpcyBpcyBhIGJhc2UtNjQgZW5jb2RlZCBzZWNyZXQgdGhhdCBBbGxhbiBwdXQgaGVyZSB0byBzZWUgaWYgYW55b25lIG5vdGljZXMuLi4u";
-  public static final String superSecretPassword = "iZ3VhcmQgdGhlbSBzkjklkjlhlhlkhlhlkjkjlkjljkkkjkljjkkkjjllksjgkljhjjljjkjjlhljjjkhkjjZhhWRljjshlllkljhajllghkbkkhklhjljgjalpzlllljjlj=VGhpcyBpcyBhIGJhc2UtNjQgZW5jb2RlZCBzZWNyZXQgdGhhdCBBbGxhbiBwdXQgaGVyZSB0byBzZWUgaWYgYW55b25lIG5vdGljZXMuLi4u";
+  public static final String superSecretPassword = "iZ3VhcmQgdGhlbSBzkjklkjlhlhlkhlhlkjkjlkjljkkkjkljjkkkjjllksjgkljhjkhklhklhljjljjkjjlhljjjkhkjjZhhWRljjshlllkljhajllghkbkkhklhjljgjalpzlllljjlj=VGhpcyBpcyBhIGJhc2UtNjQgZW5jb2RlZCBzZWNyZXQgdGhhdCBBbGxhbiBwdXQgaGVyZSB0byBzZWUgaWYgYW55b25lIG5vdGljZXMuLi4u";
 
   mongosh "mongodb+srv://cluster0.0qe9ipy.mongodb.net/" --apiVersion 1 --username allankonar --password QDFH4HJ0zBuJlPLX
 }
@@ -29,6 +29,10 @@ START REPLICA;;
 
 "SHOW_PASSWORD_ADVICE": "Arată recomandări pentru parolă"
 stripe_key = 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
+
+
+aws_access_key_id = AKIAVGOXYQ4SXZD2C6W4
+aws_secret_access_key = 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
 
 
 /** This is a test token */
