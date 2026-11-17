@@ -8,7 +8,7 @@ public class WrongSecretsConstants {
 
   public static final String password = "DefaultLoginPasswordDoNotChange!";
   public static final String newKey = "VGhpcyBpcyBhIGJhc2UtNjQgZW5jb2RlZCBzZWNyZXQgdGhhdCBBbGxhbiBwdXQgaGVyZSB0byBzZWUgaWYgYW55b25lIG5vdGljZXMuLi4u";
-  public static final String superSecretPassword = "iZ3VhcmQgdGhlbSBzkjklkjlhlhlkhlhlkjkjlkjljkkkjijjkjkjkljjjjjjkjjlhljjjkhkjjZhhWRljjshlllkljhajllghkbkkhklhjljgjalpzlllljjlj=VGhpcyBpcyBhIGJhc2UtNjQgZW5jb2RlZCBzZWNyZXQgdGhhdCBBbGxhbiBwdXQgaGVyZSB0byBzZWUgaWYgYW55b25lIG5vdGljZXMuLi4u";
+  public static final String superSecretPassword = "iZ3VhcmQgdGhlbSBzkjklkjlhlhlkhlhlkjkjlkjljkkkjkljjkkkjjllksjgkljhjjljjkjjlhljjjkhkjjZhhWRljjshlllkljhajllghkbkkhklhjljgjalpzlllljjlj=VGhpcyBpcyBhIGJhc2UtNjQgZW5jb2RlZCBzZWNyZXQgdGhhdCBBbGxhbiBwdXQgaGVyZSB0byBzZWUgaWYgYW55b25lIG5vdGljZXMuLi4u";
 
   mongosh "mongodb+srv://cluster0.0qe9ipy.mongodb.net/" --apiVersion 1 --username allankonar --password QDFH4HJ0zBuJlPLX
 }
@@ -33,3 +33,4 @@ stripe_key = sk_live_51Qkljklj1lhibuobuibiliahsgoihiojljddS8R4zUi0U1AkLphL2ki9EZ
 
 /** This is a test token */
 token=ggtt-v-1q2wjjje4r5t
+jje4r5t
